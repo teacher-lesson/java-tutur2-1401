@@ -25,6 +25,7 @@ public class MemberView {
         System.out.println("1 - Read member by id :");
         System.out.println("2 - Read all member.");
         System.out.println("3 - Add new member :");
+        System.out.println("4 - Update member by Id:");
         System.out.println();
     }
 

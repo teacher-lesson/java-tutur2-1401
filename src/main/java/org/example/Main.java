@@ -10,8 +10,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        final InputService inputService = new ConsoleService(new Scanner(System.in), new EnglishCharValidation(), new NumberValidation());
-        MainView mainView = new MainView(inputService);
+        final var inputService = new ConsoleService(new Scanner(System.in), new EnglishCharValidation(), new NumberValidation());
+        final var mainView = new MainView(inputService);
         mainView.run();
     }
 }

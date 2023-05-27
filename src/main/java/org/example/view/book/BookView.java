@@ -28,6 +28,7 @@ public class BookView {
                 case 1 -> showReadBookByIdMenu();
                 case 2 -> showAllBook();
                 case 3 -> showNewBookMenu();
+                case 4 -> showUpdateMenu();
                 case 0 -> {
                     return;
                 }
@@ -35,6 +36,40 @@ public class BookView {
             }
 
 
+        }
+    }
+
+    private void showUpdateMenu() {
+        TerminalUtils.clearScreen();
+        System.out.println("Please input id (0 to back) :");
+        while (true) {
+            long id = inputService.readBigNumber();
+            if (id == 0) {
+                return;
+            }
+
+            Book read = service.read(id);
+            if (read == null) {
+                System.out.println("Id not fount please input again (0 to back)");
+                continue;
+            }
+
+            System.out.println("you are editing : " + read);
+
+            System.out.println("Input name : (current : " + read.getName() + ")");
+            String name = inputService.readWord();
+            System.out.println("What isbn number of " + name + "(current : " + read.getIsbn() + ")");
+            String isbn = inputService.readWord();
+            System.out.println("What date of book writen " + name + "(current : " + read.getWriterDate() + ")");
+            Date date = inputService.readDate();
+
+            service.update(id, new Book(
+                    name,
+                    isbn,
+                    date,
+                    "ALAKI",
+                    1200.0D
+            ));
         }
     }
 
@@ -83,6 +118,7 @@ public class BookView {
         System.out.println("1 - Read book by id :");
         System.out.println("2 - Read all book.");
         System.out.println("3 - Add new book :");
+        System.out.println("4 - Update book by id :");
         System.out.println();
     }
 

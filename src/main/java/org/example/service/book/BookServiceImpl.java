@@ -48,7 +48,7 @@ public class BookServiceImpl implements BookService {
             return false;
         }
 
-        data.put(id, book);
+        data.replace(id, book);
         return true;
     }
 
