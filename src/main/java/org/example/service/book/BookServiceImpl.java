@@ -7,8 +7,6 @@ import java.util.Map;
 
 public class BookServiceImpl implements BookService {
     private static long lastId = 1;
-
-    private Book[] books = new Book[100];
     private Map<Long, Book> data = new HashMap<>();
 
     @Override
@@ -23,18 +21,11 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book[] readAll() {
-//        return books;
         return data.values().toArray(new Book[data.size()]);
     }
 
     @Override
     public long create(Book book) {
-//        for (int i = 0; i < books.length; i++) {
-//            if (books[i] == null) {
-//                books[i] = book;
-//                break;
-//            }
-//        }
         long key = lastId++;
         book.setId(key);
         data.put(key, book);

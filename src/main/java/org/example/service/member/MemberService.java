@@ -1,15 +1,15 @@
 package org.example.service.member;
 
-import java.lang.reflect.Member;
+import org.example.domain.member.BookMember;
 
 public interface MemberService {
-    Member read(long id);
+    BookMember read(long id);
 
-    Member[] readAll();
+    BookMember[] readAll();
 
-    long create(Member member);
+    long create(BookMember member);
 
-    boolean update(long id, Member member);
+    boolean update(long id, BookMember member);
 
     boolean delete(long id);
 }

@@ -70,6 +70,8 @@ public class BookView {
                     "ALAKI",
                     1200.0D
             ));
+
+            return;
         }
     }
 
