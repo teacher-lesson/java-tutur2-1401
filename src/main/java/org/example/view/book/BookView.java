@@ -58,18 +58,14 @@ public class BookView {
 
             System.out.println("Input name : (current : " + read.getName() + ")");
             String name = inputService.readWord();
-            System.out.println("What isbn number of " + name + "(current : " + read.getIsbn() + ")");
-            String isbn = inputService.readWord();
-            System.out.println("What date of book writen " + name + "(current : " + read.getWriterDate() + ")");
-            Date date = inputService.readDate();
+            read.setName(name);
 
-            service.update(id, new Book(
-                    name,
-                    isbn,
-                    date,
-                    "ALAKI",
-                    1200.0D
-            ));
+            System.out.println("What isbn number of " + name + "(current : " + read.getIsbn() + ")");
+            read.setIsbn(inputService.readWord());
+            System.out.println("What date of book writen " + name + "(current : " + read.getWriterDate() + ")");
+            read.setWriterDate(inputService.readDate());
+
+            service.update(id, read);
 
             return;
         }
