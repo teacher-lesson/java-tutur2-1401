@@ -2,6 +2,7 @@ package com.example.timer;
 
 import lombok.SneakyThrows;
 
+import java.io.OutputStream;
 import java.util.Scanner;
 
 public class Main {
@@ -10,10 +11,14 @@ public class Main {
     public static void main(String[] args) {
 
 
+
+
         final Scanner scanner = new Scanner(System.in);
         final int i = scanner.nextInt();
 
-        Timer timer = new Timer(i);
+
+
+        Timer timer = new Timer(i, new OutputWindow("Output"));
         startTimer(timer);
 
         while (true) {
