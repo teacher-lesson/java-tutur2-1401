@@ -9,6 +9,5 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class Student implements Serializable {
     private String name;
-    private transient String stuNumber;
     private int age;
 }
