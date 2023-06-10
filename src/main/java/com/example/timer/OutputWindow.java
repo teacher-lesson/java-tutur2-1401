@@ -2,8 +2,6 @@ package com.example.timer;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 
 public class OutputWindow implements Runnable {
 
@@ -30,7 +28,6 @@ public class OutputWindow implements Runnable {
         frame.setAlwaysOnTop(true);
     }
 
-
     public void clean() {
         outputArea.setText("");
     }
@@ -38,19 +35,7 @@ public class OutputWindow implements Runnable {
         outputArea.append(msg + "\n");
     }
 
-    public void println(Throwable t) {
-        this.println(t.toString());
-    }
-
     public void print(String msg) {
         outputArea.append(msg);
     }
-
-    public void printStackTrace(Throwable t) {
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        t.printStackTrace(pw);
-        this.println(sw.toString());
-    }
-
 }
