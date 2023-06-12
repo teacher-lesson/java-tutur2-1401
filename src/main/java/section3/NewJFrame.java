@@ -4,7 +4,6 @@
  */
 package section3;
 
-import java.util.Arrays;
 import javax.swing.UIManager;
 
 /**
