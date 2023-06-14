@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class Main {
+public class MainUpdate {
 
     @SneakyThrows
     public static void main(String[] args) {
@@ -22,15 +22,9 @@ public class Main {
 
         final Statement statement = connection.createStatement();
 
-        final ResultSet rs = statement.executeQuery("SELECT * FROM `students`");
-//        statement.executeUpdate()
+        final String sql = "UPDATE students SET first_name = 'amir' WHERE first_name = 'hassan';";
+        statement.executeUpdate(sql);
 
-        while (rs.next()) {
-            System.out.print(rs.getString("first_name"));
-            System.out.println(" " + rs.getString("last_name"));
-        }
-
-        rs.close();
         statement.close();
         connection.close();
 
