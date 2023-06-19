@@ -31,7 +31,7 @@ fun main() {
 
             val client = ClientHolder(socket)
 
-            if (clients.containsKey(clientAddress)) {
+            if (clients.containsKey(clientAddress)) { // if same host exits remove old one
                 clients[clientAddress]?.quitSocket()
             }
 

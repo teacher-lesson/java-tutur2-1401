@@ -10,9 +10,9 @@ import java.util.*
 data class ClientHolder(
     val socket: Socket
 ) {
-    val reader: BufferedReader = socket.getInputStream().bufferedReader()
-    val writer: BufferedWriter = socket.getOutputStream().bufferedWriter()
     val blackList: MutableList<String> = mutableListOf()
+    private val reader: BufferedReader = socket.getInputStream().bufferedReader()
+    private val writer: BufferedWriter = socket.getOutputStream().bufferedWriter()
     fun message(input: String) {
         this.writer.write(input)
         this.writer.newLine()
@@ -36,7 +36,6 @@ data class ClientHolder(
 
     fun quitSocket(): String {
         if (!socket.isClosed) {
-            message("/exit")
             socket.close()
         }
         return "/exit"
